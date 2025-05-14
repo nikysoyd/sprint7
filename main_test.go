@@ -5,6 +5,7 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+	"strconv"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -80,7 +81,7 @@ func TestCafeCount(t *testing.T) {
 
 	for _, req := range requests {
 		t.Run(req.name, func(t *testing.T) {
-			request := httptest.NewRequest(http.MethodGet, "/cafe?city=moscow&count="+string(req.count), nil)
+			request := httptest.NewRequest(http.MethodGet, "/cafe?city=moscow&count="+ strconv.Itoa(req.count), nil)
 			responseRecorder := httptest.NewRecorder()
 			handler := http.HandlerFunc(mainHandle)
 			handler.ServeHTTP(responseRecorder, request)

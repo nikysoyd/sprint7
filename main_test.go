@@ -75,7 +75,7 @@ func TestCafeCount(t *testing.T) {
 		{
 			name:  "count=100",
 			count: 100,
-			want:  len(cafeList["city"]),
+			want:  len(cafeList["moscow"]),
 		},
 	}
 
